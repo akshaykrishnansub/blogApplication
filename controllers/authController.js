@@ -1,4 +1,4 @@
-import { findUserByEmail,createUser } from '../models/postModel.js'
+import { findUserByEmail,createUser } from '../models/userModel.js'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 
