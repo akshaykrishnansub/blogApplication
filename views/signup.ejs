@@ -15,22 +15,22 @@
                         <div class="mt-4">
                             <h3 class="text-center mb-5"><a href="/" style="text-decoration: none;color: black;">Blogifier</a></h3>
                             <div class="mb-4">
-                                <form action="/signup" method="GET">
+                                <form action="/auth/signup" method="POST">
                                     <div class="form-group">
-                                        <label for="fname">Firstname</label>
-                                        <input type="text" class="form-control mb-4">
+                                        <label for="first_name">Firstname</label>
+                                        <input type="text" class="form-control mb-4" name="first_name">
                                     </div>
                                     <div>
-                                        <label for="lname">Last Name</label>
-                                        <input type="text" class="form-control mb-4">
+                                        <label for="last_name">Last Name</label>
+                                        <input type="text" class="form-control mb-4" name="last_name">
                                     </div>
                                     <div>
                                         <label for="email">Email</label>
-                                        <input type="email" class="form-control mb-4">
+                                        <input type="email" class="form-control mb-4" name="email">
                                     </div>
                                     <div>
                                         <label for="password">Enter a Password</label>
-                                        <input type="password" class="form-control mb-4">
+                                        <input type="password" class="form-control mb-4" name="password">
                                     </div>
                                     <div>
                                         <button class="btn btn-primary btn-sm w-100">Sign Up</button>

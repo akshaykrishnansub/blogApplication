@@ -15,4 +15,4 @@ db.connect()
 .then(()=>console.log("Connected to postgres"))
 .catch(err=>console.log("Connection error",err))
 
-module.exports=db;
+export default db;

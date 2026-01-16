@@ -1,8 +1,19 @@
 import express from "express"
+import authRoutes from "./routes/authRoutes.js"
 
 const app=express();
 
+//serve static files if needed
 app.use(express.static("public"));
+
+//Middleware to parse JSON
+app.use(express.json());
+
+//Middleware for form submissions
+app.use(express.urlencoded({extended:true}));
+
+//Use the auth routes
+app.use('/auth',authRoutes)
 
 app.set("view engine","ejs");
 
@@ -31,6 +42,7 @@ app.get("/signup",(req,res)=>{
 app.get("/compose",(req,res)=>{
     res.render("compose.ejs")
 })
+
 
 
 app.listen(port, ()=>{
