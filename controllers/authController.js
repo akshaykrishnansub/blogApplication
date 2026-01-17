@@ -48,10 +48,10 @@ const loginUser=async (req,res)=>{
         const token=jwt.sign({id:user.id},process.env.JWT_SECRET,{expiresIn:'1h'})
 
         //send response
-        return res.status(200).json({message:'Login successful'});
+        return res.status(200).json({message:'Login successful',token});
     }catch(err){
         console.error(err);
-        return res.status(500).json({error:'Server error'})
+        return res.status(500).json({error:'Server error'});
     }
 
 }
