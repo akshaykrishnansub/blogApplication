@@ -15,14 +15,14 @@
                         <div class="mt-4">
                             <h3 class="text-center mb-5"><a href="/" style="text-decoration: none;color: black;">Blogifier</a></h3>
                             <p class="text-center mb-5">Login to access Blogifier</p>
-                            <form action="/login" method="GET">
+                            <form action="/auth/login" method="POST">
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input id="email" type="email" placeholder="yourname@yourbusiness.com" class="form-control">
+                                    <input id="email" type="email" name="email" placeholder="yourname@yourbusiness.com" class="form-control">
                                 </div>
                                 <div class="form-group mt-4">
                                     <label for="password">Password</label>
-                                    <input type="password" class="form-control">
+                                    <input type="password" name="password" class="form-control">
                                 </div>
                                 <div class="mt-5 text-center mb-4">
                                     <button class="btn btn-primary btn-sm w-100 rounded fw-bold">Login</button>
