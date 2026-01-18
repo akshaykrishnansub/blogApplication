@@ -1,5 +1,7 @@
 import express from "express"
 import authRoutes from "./routes/authRoutes.js"
+import blogRoutes from "./routes/blogRoutes.js"
+import cookieParser from 'cookie-parser';
 
 const app=express();
 
@@ -9,11 +11,17 @@ app.use(express.static("public"));
 //Middleware to parse JSON
 app.use(express.json());
 
+//middleware for cookie parser
+app.use(cookieParser())
+
 //Middleware for form submissions
 app.use(express.urlencoded({extended:true}));
 
 //Use the auth routes
 app.use('/auth',authRoutes)
+
+//Blog Routes
+app.use('/blogs',blogRoutes);
 
 app.set("view engine","ejs");
 
@@ -40,10 +48,8 @@ app.get("/signup",(req,res)=>{
 })
 
 app.get("/compose",(req,res)=>{
-    res.render("compose.ejs")
+    res.redirect("/login");
 })
-
-
 
 app.listen(port, ()=>{
 console.log(`Server running on port: ${port}`)

@@ -10,7 +10,9 @@
     <nav class="navbar navbar-dark navbar-expand-lg p-3 sticky-top" style="background-color: #2563EB;">
         <div class="container-fluid">
             <a href="home.html" class="navbar-brand fw-bold">Blogifier</a>
-            <button class="btn btn-info">Logout</button>
+            <form action="/auth/logout" method="POST">
+                <button type="submit" class="btn btn-info">Logout</button>
+            </form>
         </div>
     </nav>
     <div class="container">

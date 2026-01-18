@@ -47,8 +47,15 @@ const loginUser=async (req,res)=>{
         //generate JWT token
         const token=jwt.sign({id:user.id},process.env.JWT_SECRET,{expiresIn:'1h'})
 
-        //send response
-        return res.status(200).json({message:'Login successful',token});
+        //store token in a cookie
+        res.cookie("token",token,{
+            httpOnly:true,
+            secure:false,
+            maxAge:3600000
+        });
+
+        //Redirect to compose page
+        res.redirect("/blogs/compose")
     }catch(err){
         console.error(err);
         return res.status(500).json({error:'Server error'});
@@ -56,4 +63,20 @@ const loginUser=async (req,res)=>{
 
 }
 
-export {registerUser,loginUser}
+const logoutUser=(req,res)=>{
+    try{
+        //if your JWT is stored in cookies
+        res.clearCookie('token',{path:"/",
+            httpOnly:true,
+            secure:false
+        });
+
+        //If you store JWT in localstorage, you need to redirect
+        res.redirect('/login');
+    }catch(err){
+        console.error(err);
+        return res.status(500).json({error:'Server error during logout'})
+    }
+}
+
+export {registerUser,loginUser,logoutUser}
