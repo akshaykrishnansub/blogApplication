@@ -17,14 +17,14 @@
     </nav>
     <div class="container">
         <div class="container-fluid mt-5">
-            <form action="">
+            <form action="/blogs" method="POST">
                 <div class="form-group">
                     <label for="title">Title</label>
-                    <input id="title" type="text" class="w-100 mt-2" placeholder="Enter the title here" required>
+                    <input id="title" name="title" type="text" class="w-100 mt-2" placeholder="Enter the title here" required>
                 </div>
                 <div class="form-group mt-3">
                     <label for="category">Category</label>
-                    <select id="category" class="w-100 mt-2" required>
+                    <select id="category" name="category" class="w-100 mt-2" required>
                         <option value="Select a category" selected>Select a category</option>
                         <option value="Machine Learning">Machine Learning</option>
                         <option value="Data Science">Data Science</option>
@@ -37,15 +37,15 @@
                     </select>
                     <div class="form-group mt-3">
                         <label for="author">Author</label>
-                        <input id="author" type="text" placeholder="Enter an Author Name" class="w-100 mt-2" required>
+                        <input id="author" name="author" type="text" placeholder="Enter an Author Name" class="w-100 mt-2" required>
                     </div>
                     <div class="form-group mt-3" required>
                         <label for="Date">Date</label>
-                        <input id="date-input" type="date" class="w-100 mt-2">
+                        <input id="date-input" name="blog_date" type="date" class="w-100 mt-2">
                     </div>
                     <div class="form-group mt-3">
-                        <label for="Body">Body</label>
-                        <textarea name="" id="blog-body" class="w-100 mt-2" rows="10" required></textarea>
+                        <label for="body">Body</label>
+                        <textarea name="body" id="blog-body" class="w-100 mt-2" rows="10" required></textarea>
                     </div>
                     <div class="form-group">
                         <button id="publish-btn" class="btn btn-success mt-3 rounded-0" disabled>Publish</button>
