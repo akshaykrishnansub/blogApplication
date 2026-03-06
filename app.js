@@ -51,6 +51,10 @@ app.get("/compose",(req,res)=>{
     res.redirect("/login");
 })
 
+app.get("/dashboard",(req,res)=>{
+    res.render("dashboard.ejs")
+})
+
 app.listen(port, ()=>{
 console.log(`Server running on port: ${port}`)
 })
