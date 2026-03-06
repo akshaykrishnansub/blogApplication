@@ -56,7 +56,7 @@ const loginUser=async (req,res)=>{
         });
 
         //Redirect to compose page
-        res.redirect("/blogs/compose")
+        res.redirect("/blogs/dashboard")
     }catch(err){
         console.error(err);
         return res.status(500).json({error:'Server error'});
