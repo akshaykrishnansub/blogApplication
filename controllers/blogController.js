@@ -19,4 +19,8 @@ const composeBlog=async(req,res)=>{
     }
 }
 
+const selectBlogsByUser=async(req,res)=>{
+    
+}
+
 export {composeBlog}
