@@ -22,7 +22,7 @@ app.use('/auth',authRoutes)
 
 //Blog Routes
 app.use('/blogs',blogRoutes);
-
+app.use('/blog',blogRoutes);
 app.set("view engine","ejs");
 
 const port=process.env.PORT ||3000

@@ -10,4 +10,9 @@ const findBlogByUserId=async(userId)=>{
     return result.rows;
 }
 
-export {createBlog,findBlogByUserId}
+const findBlogById=async(blogId)=>{
+    const result=await db.query('SELECT id,title,category,author,blog_date,body from blogs WHERE id=$1',[blogId]);
+    return result.rows[0];
+}
+
+export {createBlog,findBlogByUserId,findBlogById}

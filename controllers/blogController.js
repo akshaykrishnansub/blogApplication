@@ -1,4 +1,4 @@
-import { createBlog } from "../models/blogModel.js";
+import { createBlog, findBlogById, findBlogByUserId } from "../models/blogModel.js";
 
 const composeBlog=async(req,res)=>{
     try{
@@ -20,7 +20,35 @@ const composeBlog=async(req,res)=>{
 }
 
 const selectBlogsByUser=async(req,res)=>{
-    
+    try{
+        const user_id=req.user.id; // using JWT
+        const myBlogs=await findBlogByUserId(user_id);
+        if(!myBlogs.length){
+            return res.status(404).json({message:'No blogs found',blogs:[]})
+        }
+        return res.status(200).json({message:'Blog fetched successfully',blogs:myBlogs});
+    }catch(err){
+        console.log("Error fetching your blogs",err);
+        return res.status(500).json({error:'Failed to fetch the blogs'})
+    } 
 }
 
-export {composeBlog}
+const selectBlogById=async(req,res)=>{
+    try{
+        const blog_id=req.params.id;
+        const blog=await findBlogById(blog_id);
+
+        if(!blog){
+            return res.status(404).json({error:'Blog Not found'});
+        }
+
+        res.render("singleBlog.ejs",{blog})
+        
+    }catch(err){
+        console.error("Server error",err);
+        return res.status(500).json({error:"Failed to fetch blog"})
+    }
+
+}
+
+export {composeBlog,selectBlogsByUser,selectBlogById}

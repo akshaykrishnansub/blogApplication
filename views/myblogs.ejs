@@ -17,6 +17,17 @@
     </nav>
     <div class="mt-4 text-center">
         <h5 class="fw-bold" style="font-size: 30px;">MY BLOGS</h5>
+        <%blogs.forEach(blog=>{%>
+        <div class="container mt-4">
+            <div style="background-color:darkblue" class="rounded-1 p-3">     
+                <div><span style="font-size: 25px; color:white;font-weight: bold;">Title: </span><span style="font-size: 20px;color:white"><%=blog.title %></span></div>
+                <div><span style="font-size: 25px; color:white;font-weight: bold;">Category: </span><span style="font-size: 20px;color:white"><%=blog.category %></span></div>
+                <div><span style="font-size: 25px; color:white;font-weight: bold;">Author: </span><span style="font-size: 20px;color:white"><%=blog.author %></span></div>
+                <div><span style="font-size: 25px; color:white;font-weight: bold;">Blog Date: </span><span style="font-size: 20px;color:white"><%=new Date(blog.blog_date).toLocaleString() %></span></div>
+                <div><span style="font-size: 25px; color:white;font-weight: bold;">Body: </span><span style="font-size: 20px;color:white"><%=blog.body.substring(0,120) %>...<a href="/blog/<%=blog.id %>" style="color:white">Read More</a></span></div>
+            </div>            
+        </div>
+        <%})%>
     </div>
 </body>
 </html>
