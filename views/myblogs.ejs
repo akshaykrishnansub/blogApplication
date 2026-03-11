@@ -15,19 +15,32 @@
             </form>
         </div>
     </nav>
-    <div class="mt-4 text-center">
+    <div class="mt-4 text-center mb-4">
         <h5 class="fw-bold" style="font-size: 30px;">MY BLOGS</h5>
+        <% if(blogs.length===0){%>
+            <h2>No blogs found</h2>
+            <%}else{%>
         <%blogs.forEach(blog=>{%>
         <div class="container mt-4">
             <div style="background-color:darkblue" class="rounded-1 p-3">     
-                <div><span style="font-size: 25px; color:white;font-weight: bold;">Title: </span><span style="font-size: 20px;color:white"><%=blog.title %></span></div>
-                <div><span style="font-size: 25px; color:white;font-weight: bold;">Category: </span><span style="font-size: 20px;color:white"><%=blog.category %></span></div>
-                <div><span style="font-size: 25px; color:white;font-weight: bold;">Author: </span><span style="font-size: 20px;color:white"><%=blog.author %></span></div>
-                <div><span style="font-size: 25px; color:white;font-weight: bold;">Blog Date: </span><span style="font-size: 20px;color:white"><%=new Date(blog.blog_date).toLocaleString() %></span></div>
-                <div><span style="font-size: 25px; color:white;font-weight: bold;">Body: </span><span style="font-size: 20px;color:white"><%=blog.body.substring(0,120) %>...<a href="/blog/<%=blog.id %>" style="color:white">Read More</a></span></div>
+                <div class="mt-4"><span style="font-size: 25px; color:white;font-weight: bold;">Title: </span><span style="font-size: 20px;color:white"><%=blog.title %></span></div>
+                <div class="mt-4"><span style="font-size: 25px; color:white;font-weight: bold;">Category: </span><span style="font-size: 20px;color:white"><%=blog.category %></span></div>
+                <div class="mt-4"><span style="font-size: 25px; color:white;font-weight: bold;">Author: </span><span style="font-size: 20px;color:white"><%=blog.author %></span></div>
+                <div class="mt-4"><span style="font-size: 25px; color:white;font-weight: bold;">Blog Date: </span><span style="font-size: 20px;color:white"><%=new Date(blog.blog_date).toLocaleString() %></span></div>
+                <div class="mt-4"><span style="font-size: 25px; color:white;font-weight: bold;">Body: </span><span style="font-size: 20px;color:white"><%=blog.body.substring(0,120) %>...<a href="/blog/<%=blog.id %>" style="color:white">Read More</a></span></div>
+                <div class="mt-4 mb-4">
+                    <button class="p-2 rounded" style="background-color: darkgreen;color:white">Edit Blog</button>
+                    <form action="/blogs/delete/<%= blog.id %>" method="POST" style="display: inline;">
+                        <button class="p-2 rounded" style="background-color: red;color:white; display: inline;" onclick="return confirm('Are you sure you want to delete this blog?')">Delete Blog</button>
+                    </form>
+                </div>
             </div>            
         </div>
         <%})%>
+        <% } %>
+        <div class="mt-4">
+            <a href="/blogs/dashboard" style="color:black">Go Back to Dashboard</a>
+        </div>
     </div>
 </body>
 </html>

@@ -19,8 +19,10 @@
     <div class="p-3">
         <h1><%= blog.title %></h1>
         <div class="mt-4"><p><span class="fw-bold" style="font-size: 20px;">Category: </span><span style="font-size: 19px;"><%= blog.category%></span></p></div>
-        <div class="mt-4"><p><span class="fw-bold" style="font-size: 20px;">Author: </span><span style="font-size: 19px;"><%= blog.author %></span></p></div>        <div class="mt-4"><p><span class="fw-bold" style="font-size: 20px;">Blog Date: </span><span style="font-size: 19px;"><%= new Date(blog.blog_date).toLocaleString() %></span></p></div>
+        <div class="mt-4"><p><span class="fw-bold" style="font-size: 20px;">Author: </span><span style="font-size: 19px;"><%= blog.author %></span></p></div>
+        <div class="mt-4"><p><span class="fw-bold" style="font-size: 20px;">Blog Date: </span><span style="font-size: 19px;"><%= new Date(blog.blog_date).toLocaleString() %></span></p></div>      
         <div class="mt-4"><p><span class="fw-bold" style="font-size: 20px;">Body: </span><span style="font-size: 19px;"><%= blog.body %></span></p></div>
+        <a href="/blogs/myblogs" style="color:black">Go back to My Blogs</a>
     </div>
 </body>
 </html>

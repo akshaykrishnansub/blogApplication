@@ -1,4 +1,4 @@
-import { createBlog, findBlogById, findBlogByUserId } from "../models/blogModel.js";
+import { createBlog, deleteBlogById, findBlogById, findBlogByUserId } from "../models/blogModel.js";
 
 const composeBlog=async(req,res)=>{
     try{
@@ -51,4 +51,21 @@ const selectBlogById=async(req,res)=>{
 
 }
 
-export {composeBlog,selectBlogsByUser,selectBlogById}
+const deleteBlog=async(req,res)=>{
+    try{
+        const user_id=req.user.id;
+        const blog_id=req.params.id;
+        const deletedBlog=await deleteBlogById(blog_id,user_id);
+
+        if(!deletedBlog){
+            return res.status(404).json({error:'Blog not found'})
+        }
+
+       return res.redirect("/blogs/myblogs");
+    }catch(err){
+        console.error("Server Error",err);
+        return res.status(500).json({error:'Failed to delete blog'});
+    }
+}
+
+export {composeBlog,selectBlogsByUser,selectBlogById,deleteBlog}

@@ -15,4 +15,9 @@ const findBlogById=async(blogId)=>{
     return result.rows[0];
 }
 
-export {createBlog,findBlogByUserId,findBlogById}
+const deleteBlogById=async(id,userId)=>{
+    const result=await db.query('DELETE from blogs where id=$1 AND user_id=$2 RETURNING *',[id,userId]);
+    return result.rows[0];
+}
+
+export {createBlog,findBlogByUserId,findBlogById,deleteBlogById}

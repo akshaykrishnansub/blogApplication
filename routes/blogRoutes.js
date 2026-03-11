@@ -1,7 +1,7 @@
 import authenticateToken from "../middleware/auth.middleware.js";
 import express from 'express';
 import { findBlogByUserId } from "../models/blogModel.js";
-import { composeBlog,selectBlogById } from "../controllers/blogController.js";
+import { composeBlog,deleteBlog,selectBlogById } from "../controllers/blogController.js";
 
 const router=express.Router();
 
@@ -26,5 +26,6 @@ router.get("/myblogs",authenticateToken,async(req,res)=>{
 
 router.post('/',authenticateToken,composeBlog);
 router.get("/:id",authenticateToken,selectBlogById);
+router.post("/delete/:id",authenticateToken,deleteBlog)
 
 export default router;
