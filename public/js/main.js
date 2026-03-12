@@ -40,9 +40,9 @@ document.addEventListener("DOMContentLoaded",()=>{
             }
             try{
             //send post request to backend route "/blogs"
-            const response=await fetch("/blogs",{
+            const response=await fetch(composeForm.action,{
                 //specify HTTP request as POST (Used for creating new data on server)
-                method:"POST",
+                method:composeForm.method,
                 //Tell the server that the data body will be JSON
                 headers:{"Content-Type":"application/json"},
                 //convert the Javascript object into a JSON string and include it in the request body
@@ -54,7 +54,11 @@ document.addEventListener("DOMContentLoaded",()=>{
             
             if(response.ok){
                 displayAlerts(result.message,"success");
-                composeForm.reset();
+                titleInput.value=data.title;
+                categoryInput.value=data.category;
+                authorInput.value=data.author;
+                dateInput.value=data.blog_date;
+                bodyInput.value=data.body;
             }else{
                 displayAlerts(result.error || "Failed to store blog","error")
             }

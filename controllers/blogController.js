@@ -1,4 +1,4 @@
-import { createBlog, deleteBlogById, findBlogById, findBlogByUserId } from "../models/blogModel.js";
+import { createBlog, deleteBlogById, findBlogById, findBlogByUserId, updateBlogById } from "../models/blogModel.js";
 
 const composeBlog=async(req,res)=>{
     try{
@@ -35,8 +35,9 @@ const selectBlogsByUser=async(req,res)=>{
 
 const selectBlogById=async(req,res)=>{
     try{
+        const user_id=req.user.id;
         const blog_id=req.params.id;
-        const blog=await findBlogById(blog_id);
+        const blog=await findBlogById(blog_id,user_id);
 
         if(!blog){
             return res.status(404).json({error:'Blog Not found'});
@@ -68,4 +69,35 @@ const deleteBlog=async(req,res)=>{
     }
 }
 
-export {composeBlog,selectBlogsByUser,selectBlogById,deleteBlog}
+const editBlog=async(req,res)=>{
+    try{
+        const user_id=req.user.id;
+        const blog_id=req.params.id;
+        const blog=await findBlogById(blog_id,user_id);
+        if(!blog){
+            return res.status(404).json({error:'Blog not found or user not authorized'});
+        }
+        return res.render("editBlog.ejs",{blog});
+    }catch(err){
+        console.error("Server error",err);
+        return res.status(500).json("Error while loading edit blog page");
+    }
+}
+
+const updateBlog=async(req,res)=>{
+    try{
+        const user_id=req.user.id;
+        const blog_id=req.params.id;
+        const {title,category,author,blog_date,body}=req.body;
+        const editedBlog=await updateBlogById(blog_id,user_id,title,category,author,blog_date,body);
+        if(!editedBlog){
+            return res.status(404).json({error:'Blog not found or user not found'});
+        }
+        return res.status(200).json({message:'Blog updated successfully',blog:editedBlog})
+    }catch(err){
+        console.error("Server error",err);
+        return res.status(500).json("Error while updating blog")
+    }
+}
+
+export {composeBlog,selectBlogsByUser,selectBlogById,deleteBlog,editBlog,updateBlog}

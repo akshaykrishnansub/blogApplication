@@ -10,8 +10,8 @@ const findBlogByUserId=async(userId)=>{
     return result.rows;
 }
 
-const findBlogById=async(blogId)=>{
-    const result=await db.query('SELECT id,title,category,author,blog_date,body from blogs WHERE id=$1',[blogId]);
+const findBlogById=async(blogId,userId)=>{
+    const result=await db.query('SELECT id,title,category,author,blog_date,body from blogs WHERE id=$1 and user_id=$2',[blogId,userId]);
     return result.rows[0];
 }
 
@@ -20,4 +20,9 @@ const deleteBlogById=async(id,userId)=>{
     return result.rows[0];
 }
 
-export {createBlog,findBlogByUserId,findBlogById,deleteBlogById}
+const updateBlogById=async(id,userId,title,category,author,blog_date,body)=>{
+    const result=await db.query('UPDATE blogs SET title=$1,category=$2,author=$3,blog_date=$4,body=$5 where id=$6 and user_id=$7 returning *',[title,category,author,blog_date,body,id,userId]);
+    return result.rows[0]
+}
+
+export {createBlog,findBlogByUserId,findBlogById,deleteBlogById,updateBlogById}

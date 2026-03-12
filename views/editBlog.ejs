@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Blog | Compose</title>
+</head>
+<body>
+    <nav class="navbar navbar-dark navbar-expand-lg p-3 sticky-top" style="background-color: #2563EB;">
+        <div class="container-fluid">
+            <a href="/" class="navbar-brand fw-bold">Blogifier</a>
+            <form action="/auth/logout" method="POST">
+                <button type="submit" class="btn btn-info">Logout</button>
+            </form>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="container-fluid mt-5">
+            <form id="compose-form" action="/blogs/update/<%= blog.id %>" method="POST">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input id="title" name="title" type="text" class="w-100 mt-2" placeholder="Enter the title here" value="<%=blog.title %>" required>
+                </div>
+                <div class="form-group mt-3">
+                    <label for="category">Category</label>
+                    <select id="category" name="category" class="w-100 mt-2" required>
+                        <option value="Select a category" selected>Select a category</option>
+                        <option value="Machine Learning" <%= blog.category==="Machine Learning"?"selected":"" %>>Machine Learning</option>
+                        <option value="Data Science" <%= blog.category==="Data Science"?"selected":"" %>>Data Science</option>
+                        <option value="Technology & Gadgets" <%= blog.category==="Technology & Gadgets"?"selected":"" %>>Technology & Gadgets</option>
+                        <option value="Web Development & Programming" <%= blog.category==="Web Development & Programming"?"selected":"" %>>Web Development & Programming</option>
+                        <option value="Startups & Entrepreneurship" <%= blog.category==="Startups & Entrepreneurship"?"selected":"" %>>Startups & Entrepreneurship</option>
+                        <option value="Productivity & Self-Improvement" <%= blog.category==="Productivity & Self-Improvement"?"selected":"" %>>Productivity & Self-Improvement</option>
+                        <option value="Health & Wellness" <%= blog.category==="Health & Wellness"?"selected":"" %>>Health & Wellness</option>
+                        <option value="Others" <%= blog.category==="Others"?"selected":"" %>>Others</option>
+                    </select>
+                    <div class="form-group mt-3">
+                        <label for="author">Author</label>
+                        <input id="author" name="author" type="text" placeholder="Enter an Author Name" class="w-100 mt-2" value="<%=blog.author %>" required>
+                    </div>
+                    <div class="form-group mt-3" required>
+                        <label for="Date">Date</label>
+                        <input id="date-input" name="blog_date" type="date" value="<%= blog.blog_date.toISOString().split('T')[0] %>" class="w-100 mt-2">
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="body">Body</label>
+                        <textarea name="body" id="blog-body" class="w-100 mt-2" rows="10" required><%=blog.body %></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button id="publish-btn" class="btn btn-success mt-3 rounded-0" disabled>Publish</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer class="p-1 mt-4" style="background-color:#2563EB;">
+        <p class="text-center fw-bold text-white pb-4 mt-4">Blogifier ©</p>
+    </footer>
+
+    <!--Alert container-->
+    <div id="alertBox"></div>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
