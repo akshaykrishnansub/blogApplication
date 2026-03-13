@@ -25,4 +25,9 @@ const updateBlogById=async(id,userId,title,category,author,blog_date,body)=>{
     return result.rows[0]
 }
 
-export {createBlog,findBlogByUserId,findBlogById,deleteBlogById,updateBlogById}
+const searchBlogByUser=async(user_id,searchTerm)=>{
+    const result=await db.query(`SELECT id,title,category,author,blog_date,body FROM blogs WHERE user_id=$1 AND (title ILIKE $2 OR category ILIKE $2 OR author ILIKE $2) ORDER BY blog_date DESC`,[user_id,`%${searchTerm}%`])
+    return result.rows;
+}
+
+export {createBlog,findBlogByUserId,findBlogById,deleteBlogById,updateBlogById,searchBlogByUser}

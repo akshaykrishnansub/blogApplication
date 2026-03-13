@@ -17,6 +17,16 @@
     </nav>
     <div class="mt-4 text-center mb-4">
         <h5 class="fw-bold" style="font-size: 30px;">MY BLOGS</h5>
+        <div class="container mt-3">
+            <form action="/blogs/search" method="GET" class="d-flex justify-content-center">
+                <input type="text"
+                name="q"
+                placeholder="Search by title,category or author"
+                class="form-control w-50 me-2"
+                >
+                <button class="btn btn-primary">Search</button>
+            </form>
+        </div>
         <% if(blogs.length===0){%>
             <h2>No blogs found</h2>
             <%}else{%>

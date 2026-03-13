@@ -1,4 +1,4 @@
-import { createBlog, deleteBlogById, findBlogById, findBlogByUserId, updateBlogById } from "../models/blogModel.js";
+import { createBlog, deleteBlogById, findBlogById, findBlogByUserId, updateBlogById, searchBlogByUser} from "../models/blogModel.js";
 
 const composeBlog=async(req,res)=>{
     try{
@@ -100,4 +100,17 @@ const updateBlog=async(req,res)=>{
     }
 }
 
-export {composeBlog,selectBlogsByUser,selectBlogById,deleteBlog,editBlog,updateBlog}
+const searchBlogs=async(req,res)=>{
+    try{
+        const user_id=req.user.id;
+        const searchTerm=req.query.q;
+        const blogs=await searchBlogByUser(user_id,searchTerm);
+        res.render("myblogs",{blogs});
+    }catch(err){
+        console.error("Server error",err);
+        return res.status(500).json("Error while searching blog")
+    }
+}
+
+
+export {composeBlog,selectBlogsByUser,selectBlogById,deleteBlog,editBlog,updateBlog,searchBlogs}

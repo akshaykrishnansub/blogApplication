@@ -1,7 +1,7 @@
 import authenticateToken from "../middleware/auth.middleware.js";
 import express from 'express';
-import { findBlogByUserId } from "../models/blogModel.js";
-import { composeBlog,deleteBlog,editBlog,selectBlogById, updateBlog } from "../controllers/blogController.js";
+import { findBlogByUserId} from "../models/blogModel.js";
+import { composeBlog,deleteBlog,editBlog,selectBlogById, updateBlog,searchBlogs } from "../controllers/blogController.js";
 
 const router=express.Router();
 
@@ -25,6 +25,7 @@ router.get("/myblogs",authenticateToken,async(req,res)=>{
 })
 
 router.post('/',authenticateToken,composeBlog);
+router.get("/search",authenticateToken,searchBlogs)
 router.get("/:id",authenticateToken,selectBlogById);
 router.get("/edit/:id",authenticateToken,editBlog)
 router.post("/update/:id",authenticateToken,updateBlog)
