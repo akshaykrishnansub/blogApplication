@@ -21,7 +21,7 @@ const deleteBlogById=async(id,userId)=>{
 }
 
 const updateBlogById=async(id,userId,title,category,author,blog_date,body)=>{
-    const result=await db.query('UPDATE blogs SET title=$1,category=$2,author=$3,blog_date=$4,body=$5 where id=$6 and user_id=$7 returning *',[title,category,author,blog_date,body,id,userId]);
+    const result=await db.query('UPDATE blogs SET title=$1,category=$2,author=$3,blog_date=$4,body=$5,updated_timestamp=CURRENT_TIMESTAMP where id=$6 and user_id=$7 returning *',[title,category,author,blog_date,body,id,userId]);
     return result.rows[0]
 }
 

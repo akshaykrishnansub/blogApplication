@@ -11,9 +11,18 @@
     <nav class="navbar navbar-dark navbar-expand-lg p-3 sticky-top" style="background-color: #2563EB;">
         <div class="container-fluid">
             <a href="/" class="navbar-brand fw-bold">Blogifier</a>
-            <form action="/auth/logout" method="POST">
-                <button type="submit" class="btn btn-info">Logout</button>
-            </form>
+            <div class="d-flex justify-content-center ms-auto gap-2">
+                <% const firstName=user.first_name;
+                    const lastName=user.last_name;
+                    const letters=firstName.charAt(0).toUpperCase()+(lastName?lastName.charAt(0).toUpperCase():"");
+                %>
+                <div class="user-avatar text-white fw-bold">
+                    <%= letters %>
+                </div>
+                <form action="/auth/logout" method="POST">
+                    <button type="submit" class="btn btn-info">Logout</button>
+                </form>
+            </div>
         </div>
     </nav>
     <div class="container">

@@ -5,9 +5,14 @@ const findUserByEmail=async(email)=>{
     return result.rows[0]
 }
 
+const findUserById=async(id)=>{
+    const result=await db.query('SELECT * FROM blog_users WHERE id=$1',[id]);
+    return result.rows[0];
+}
+
 const createUser=async(first_name,last_name,email,hashedPassword)=>{
     const result=await db.query('INSERT into blog_users (first_name,last_name,email,password) VALUES($1,$2,$3,$4) RETURNING *',[first_name,last_name,email,hashedPassword])
     return result.rows[0]
 }
 
-export {findUserByEmail,createUser}
+export {findUserByEmail,createUser,findUserById}

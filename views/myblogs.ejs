@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <title>MyBlogs</title>
 </head>
@@ -10,9 +11,18 @@
     <nav class="navbar navbar-dark navbar-expand-lg p-3 sticky-top" style="background-color: #2563EB;">
         <div class="container-fluid">
             <a href="/" class="navbar-brand fw-bold" style="text-decoration: none;">Blogifier</a>
-            <form action="/auth/logout" method="POST">
-                <button type="submit" class="btn btn-info">Logout</button>
-            </form>
+            <div class="d-flex align-items-center ms-auto gap-2">
+                <% const firstName=user.first_name;
+                    const lastName=user.last_name;
+                    const letters=firstName.charAt(0).toUpperCase()+(lastName?lastName.charAt(0).toUpperCase():"");
+                %>
+                <div class="user-avatar text-white fw-bold">
+                    <%= letters %>
+                </div>
+                <form action="/auth/logout" method="POST">
+                    <button type="submit" class="btn btn-info">Logout</button>
+                </form>
+            </div>
         </div>
     </nav>
     <div class="mt-4 text-center mb-4">
@@ -36,7 +46,7 @@
                 <div class="mt-4"><span style="font-size: 25px; color:white;font-weight: bold;">Title: </span><span style="font-size: 20px;color:white"><%=blog.title %></span></div>
                 <div class="mt-4"><span style="font-size: 25px; color:white;font-weight: bold;">Category: </span><span style="font-size: 20px;color:white"><%=blog.category %></span></div>
                 <div class="mt-4"><span style="font-size: 25px; color:white;font-weight: bold;">Author: </span><span style="font-size: 20px;color:white"><%=blog.author %></span></div>
-                <div class="mt-4"><span style="font-size: 25px; color:white;font-weight: bold;">Blog Date: </span><span style="font-size: 20px;color:white"><%=new Date(blog.blog_date).toLocaleString() %></span></div>
+                <div class="mt-4"><span style="font-size: 25px; color:white;font-weight: bold;">Blog Date: </span><span style="font-size: 20px;color:white"><%=new Date(blog.blog_date).toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'}) %></span></div>
                 <div class="mt-4"><span style="font-size: 25px; color:white;font-weight: bold;">Body: </span><span style="font-size: 20px;color:white"><%=blog.body.substring(0,120) %>...<a href="/blog/<%=blog.id %>" style="color:white">Read More</a></span></div>
                 <div class="mt-4 mb-4">
                     <form action="/blog/edit/<%= blog.id %>" method="GET" style="display: inline;">

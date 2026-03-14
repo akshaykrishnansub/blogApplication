@@ -25,3 +25,15 @@
     from{opacity: 1;}
     to{opacity: 0;}
 }
+
+.user-avatar{
+    height: 40px;
+    width: 40px;
+    background-color: green;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    border: 2px solid white;
+}

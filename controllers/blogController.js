@@ -77,7 +77,7 @@ const editBlog=async(req,res)=>{
         if(!blog){
             return res.status(404).json({error:'Blog not found or user not authorized'});
         }
-        return res.render("editBlog.ejs",{blog});
+        return res.render("editBlog.ejs",{blog,user:req.user});
     }catch(err){
         console.error("Server error",err);
         return res.status(500).json("Error while loading edit blog page");
@@ -105,7 +105,7 @@ const searchBlogs=async(req,res)=>{
         const user_id=req.user.id;
         const searchTerm=req.query.q;
         const blogs=await searchBlogByUser(user_id,searchTerm);
-        res.render("myblogs",{blogs});
+        res.render("myblogs",{blogs:blogs,user:req.user});
     }catch(err){
         console.error("Server error",err);
         return res.status(500).json("Error while searching blog")
