@@ -1,13 +1,11 @@
 import authenticateToken from "../middleware/auth.middleware.js";
 import express from 'express';
 import { findBlogByUserId} from "../models/blogModel.js";
-import { composeBlog,deleteBlog,editBlog,selectBlogById, updateBlog,searchBlogs } from "../controllers/blogController.js";
+import { composeBlog,deleteBlog,editBlog,selectBlogById, updateBlog,searchBlogs, dashboardPage } from "../controllers/blogController.js";
 
 const router=express.Router();
 
-router.get('/dashboard',authenticateToken,(req,res)=>{
-    res.render("dashboard.ejs",{user:req.user})
-})
+router.get('/dashboard',authenticateToken,dashboardPage)
 
 router.get("/compose",authenticateToken,(req,res)=>{
     res.render("compose.ejs",{user:req.user})

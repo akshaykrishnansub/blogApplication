@@ -1,4 +1,4 @@
-import { createBlog, deleteBlogById, findBlogById, findBlogByUserId, updateBlogById, searchBlogByUser} from "../models/blogModel.js";
+import { createBlog, deleteBlogById, findBlogById, findBlogByUserId, updateBlogById, searchBlogByUser,getMyBlogs,getTotalBlogs,getTotalUsers} from "../models/blogModel.js";
 
 const composeBlog=async(req,res)=>{
     try{
@@ -112,5 +112,16 @@ const searchBlogs=async(req,res)=>{
     }
 }
 
+const dashboardPage=async(req,res)=>{
+    const totalBlogs=await getTotalBlogs();
+    const myBlogs=await getMyBlogs(req.user.id);
+    const totalUsers=await getTotalUsers();
+    res.render("dashboard",{
+        user:req.user,
+        totalBlogs,
+        myBlogs,
+        totalUsers
+    })
+}
 
-export {composeBlog,selectBlogsByUser,selectBlogById,deleteBlog,editBlog,updateBlog,searchBlogs}
+export {composeBlog,selectBlogsByUser,selectBlogById,deleteBlog,editBlog,updateBlog,searchBlogs,dashboardPage}

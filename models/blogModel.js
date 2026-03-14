@@ -30,4 +30,19 @@ const searchBlogByUser=async(user_id,searchTerm)=>{
     return result.rows;
 }
 
-export {createBlog,findBlogByUserId,findBlogById,deleteBlogById,updateBlogById,searchBlogByUser}
+const getTotalBlogs=async()=>{
+    const result=await db.query('SELECT COUNT(*) from blogs');
+    return Number(result.rows[0].count);
+}
+
+const getMyBlogs=async(userId)=>{
+    const result=await db.query('SELECT COUNT(*) from blogs WHERE user_id=$1',[userId]);
+    return Number(result.rows[0].count);
+}
+
+const getTotalUsers=async()=>{
+    const result=await db.query('SELECT COUNT (*) from blog_users');
+    return Number(result.rows[0].count);
+}
+
+export {createBlog,findBlogByUserId,findBlogById,deleteBlogById,updateBlogById,searchBlogByUser,getTotalBlogs,getMyBlogs,getTotalUsers}
