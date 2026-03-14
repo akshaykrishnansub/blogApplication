@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <title>Bloggifier Login</title>
 </head>
@@ -15,14 +16,14 @@
                         <div class="mt-4">
                             <h3 class="text-center mb-5"><a href="/" style="text-decoration: none;color: black;">Blogifier</a></h3>
                             <p class="text-center mb-5">Login to access Blogifier</p>
-                            <form action="/auth/login" method="POST">
+                            <form id='login-form' action="/auth/login" method="POST">
                                 <div class="form-group">
                                     <label for="email">Email</label>
                                     <input id="email" type="email" name="email" placeholder="yourname@yourbusiness.com" class="form-control" required>
                                 </div>
                                 <div class="form-group mt-4 position-relative">
                                     <label for="password">Password</label>
-                                    <input type="password" name="password" class="form-control pb-2" required>
+                                    <input id="password" type="password" name="password" class="form-control pb-2" required>
                                 </div>
                                 <div class="mt-5 text-center mb-4">
                                     <button class="btn btn-primary btn-sm w-100 rounded fw-bold">Login</button>
@@ -39,8 +40,8 @@
                 </div>
             </div>
         </div>
-
     </div>
+    <div id="alertBox"></div>
     <script src="/js/main.js"></script>
 </body>
 </html>

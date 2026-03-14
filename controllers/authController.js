@@ -55,8 +55,7 @@ const loginUser=async (req,res)=>{
             maxAge:3600000
         });
 
-        //Redirect to compose page
-        res.redirect("/blogs/dashboard")
+        return res.status(200).json({message:'Login Successful'});
     }catch(err){
         console.error(err);
         return res.status(500).json({error:'Server error'});

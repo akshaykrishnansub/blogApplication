@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     let publishBtn=document.getElementById("publish-btn");
     let composeForm=document.getElementById("compose-form");
     let signupForm=document.getElementById("signup-form");
+    let loginForm=document.getElementById('login-form');
     let firstName=document.getElementById("first-name");
     let lastName=document.getElementById("last-name");
     let email=document.getElementById("email");
@@ -69,6 +70,45 @@ document.addEventListener("DOMContentLoaded",()=>{
         }
     })
 }
+    //alert logic for login
+    if(loginForm){
+        loginForm.addEventListener("submit",async(e)=>{
+            e.preventDefault();
+            if(email.value==="" || password.value===""){
+                displayAlerts("All fields required","error");
+                return;
+            }
+
+            const loginData={
+                email:email.value,
+                password:password.value
+            }
+
+            try{
+                const response=await fetch("/auth/login",{
+                    method:"POST",
+                    headers:{'Content-Type':'application/json'},
+                    body: JSON.stringify(loginData)
+                })
+
+                const result=await response.json();
+
+                if(response.ok){
+                    displayAlerts(result.message,"success");
+                    setTimeout(()=>{
+                        window.location.href='/blogs/dashboard';
+                    },1500);
+                }else{
+                    displayAlerts(result.error || 'Invalid Credentials','error');
+                }
+
+            }catch(err){
+                console.error(err);
+                displayAlerts("Something went wrong","error");
+            }
+
+        })
+    }
 
     //alert logic for signup page
     if(signupForm){
