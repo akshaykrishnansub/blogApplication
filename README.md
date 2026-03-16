@@ -19,3 +19,7 @@ CSS3 <br>
 JavaScript <br>
 Bootstrap <br>
 EJS <br>
+
+### Backend:
+Node.js <br>
+Express.js <br>
