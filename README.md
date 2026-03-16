@@ -33,3 +33,5 @@ PostgreSQL (Supabase)
 
 ### Deployment:
 Render
+
+## Installation
