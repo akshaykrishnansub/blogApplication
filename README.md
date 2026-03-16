@@ -52,13 +52,13 @@ To run this project locally:
 
 ## Folder Structure
 
-blogifier/
-├── controllers/          # Request handlers
-├── models/               # Database models
-├── routes/               # Express routes
-├── views/                # EJS templates
-├── public/               # Static files (CSS, JS, images)
-├── middleware/           # Auth and other middleware
-├── config/               # Database configuration
-├── package.json
-└── app.js             # Entry point
+blogifier/ <br>
+├── controllers/          # Request handlers <br>
+├── models/               # Database models <br>
+├── routes/               # Express routes <br>
+├── views/                # EJS templates <br>
+├── public/               # Static files (CSS, JS, images) <br>
+├── middleware/           # Auth and other middleware <br>
+├── config/               # Database configuration <br>
+├── package.json                                   <br>
+└── app.js             # Entry point               <br>
