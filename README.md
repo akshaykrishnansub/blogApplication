@@ -14,6 +14,7 @@ Search functionality <br>
 Pagination for blog listings <br>
 Responsive UI (Mobile, Tablet and Desktop) <br>
 Secure password hashing <br>
+Alert messages for better UX <br>
 Deployment with cloud database
 
 ## Tech Stack
@@ -42,5 +43,5 @@ To run this project locally:
 2. Install dependencies:
    npm install
 3. Start the server:
-   npm start
+   npm run start
 4. Open http://localhost:3000 in your browser
