@@ -2,6 +2,10 @@
 
 Blogifier is a full-stack blog platform where users can register, log in, and publish blog posts. Users can manage their own blogs through a personal dashboard with search and pagination.
 
+## Live Demo:
+Link to Live demo is as below:
+https://blogapplication-xmph.onrender.com/
+
 ## Features
 User authentication (JWT) <br>
 Create, edit, and delete blogs <br>
