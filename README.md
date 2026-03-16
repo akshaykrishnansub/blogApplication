@@ -1,12 +1,12 @@
-# Blogifier - A Blogging Application
+# 🚀 Blogifier - A Blogging Application
 
 Blogifier is a full-stack blog platform where users can register, log in, and publish blog posts. Users can manage their own blogs through a personal dashboard with search and pagination.
 
-## Live Demo:
+## 🌐 Live Demo:
 Link to Live demo is as below:
 https://blogapplication-xmph.onrender.com/
 
-## Features
+## ✨ Features
 User authentication (JWT) <br>
 Create, edit, and delete blogs <br>
 User dashboard with blog statistics(Total Blogs Published overall, My Blogs, No. of Users) <br>
@@ -17,7 +17,7 @@ Secure password hashing <br>
 Alert messages for better UX <br>
 Deployment with cloud database
 
-## Tech Stack
+## 🛠 Tech Stack
 ### Frontend:
 HTML5 <br>
 CSS3 <br>
@@ -35,7 +35,7 @@ PostgreSQL (Supabase)
 ### Deployment:
 Render
 
-## Installation
+##  Installation
 
 To run this project locally:
 1. Clone the repository:
@@ -50,7 +50,7 @@ To run this project locally:
    npm run start
 5. Open http://localhost:3000 in your browser
 
-## Folder Structure
+## 📂 Folder Structure
 
 blogifier/ <br>
 ├── controllers/ <br>
