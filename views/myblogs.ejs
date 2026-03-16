@@ -31,6 +31,7 @@
             <form action="/blogs/search" method="GET" class="d-flex justify-content-center">
                 <input type="text"
                 name="q"
+                value="<%= searchQuery || '' %>"
                 placeholder="Search by title,category or author"
                 class="form-control w-50 me-2"
                 >
@@ -60,6 +61,20 @@
         </div>
         <%})%>
         <% } %>
+        <div class="mt-4">
+            <% if (currentPage > 1){%>
+                <a href="/blogs/search?q=<%= searchQuery %>&page=<%= currentPage-1 %>" class="btn btn-secondary">Previous</a>
+            <%}%>
+
+            <span class="mx-3">
+                Page <%= currentPage %> of <%= totalPages %>
+            </span>
+
+            <% if(currentPage < totalPages){%>
+                <a href="/blogs/search?q=<%= searchQuery %>&page=<%= currentPage+1 %>" class="btn btn-secondary">Next</a>
+            <%}%> 
+
+        </div>
         <div class="mt-4">
             <a href="/blogs/dashboard" style="color:black">Go Back to Dashboard</a>
         </div>

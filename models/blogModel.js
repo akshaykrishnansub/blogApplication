@@ -5,8 +5,8 @@ const createBlog=async(user_id,title,category,author,blog_date,body)=>{
     return result.rows[0];
 }
 
-const findBlogByUserId=async(userId)=>{
-    const result=await db.query("SELECT id,title,category,author,blog_date,body from blogs where user_id=$1",[userId]);
+const findBlogByUserId=async(userId,limit,offset)=>{
+    const result=await db.query("SELECT id,title,category,author,blog_date,body from blogs where user_id=$1 ORDER BY blog_date DESC LIMIT $2 OFFSET $3",[userId,limit,offset]);
     return result.rows;
 }
 
@@ -25,8 +25,8 @@ const updateBlogById=async(id,userId,title,category,author,blog_date,body)=>{
     return result.rows[0]
 }
 
-const searchBlogByUser=async(user_id,searchTerm)=>{
-    const result=await db.query(`SELECT id,title,category,author,blog_date,body FROM blogs WHERE user_id=$1 AND (title ILIKE $2 OR category ILIKE $2 OR author ILIKE $2) ORDER BY blog_date DESC`,[user_id,`%${searchTerm}%`])
+const searchBlogByUser=async(user_id,searchTerm,limit,offset)=>{
+    const result=await db.query(`SELECT id,title,category,author,blog_date,body FROM blogs WHERE user_id=$1 AND (title ILIKE $2 OR category ILIKE $2 OR author ILIKE $2) ORDER BY blog_date DESC LIMIT $3 OFFSET $4`,[user_id,`%${searchTerm}%`,limit,offset])
     return result.rows;
 }
 
@@ -45,4 +45,10 @@ const getTotalUsers=async()=>{
     return Number(result.rows[0].count);
 }
 
-export {createBlog,findBlogByUserId,findBlogById,deleteBlogById,updateBlogById,searchBlogByUser,getTotalBlogs,getMyBlogs,getTotalUsers}
+//count of searched blogs
+const countSearchBlogs=async(user_id,searchTerm)=>{
+    const result=await db.query(`SELECT COUNT(*) FROM blogs WHERE user_id=$1 AND (title ILIKE $2 OR category ILIKE $2 OR author ILIKE $2)`,[user_id,`%${searchTerm}%`]);
+    return Number(result.rows[0].count)
+}
+
+export {createBlog,findBlogByUserId,findBlogById,deleteBlogById,updateBlogById,searchBlogByUser,getTotalBlogs,getMyBlogs,getTotalUsers,countSearchBlogs}

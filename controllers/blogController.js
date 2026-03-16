@@ -1,4 +1,4 @@
-import { createBlog, deleteBlogById, findBlogById, findBlogByUserId, updateBlogById, searchBlogByUser,getMyBlogs,getTotalBlogs,getTotalUsers} from "../models/blogModel.js";
+import { createBlog, deleteBlogById, findBlogById, findBlogByUserId, updateBlogById, searchBlogByUser,getMyBlogs,getTotalBlogs,getTotalUsers, countSearchBlogs} from "../models/blogModel.js";
 
 const composeBlog=async(req,res)=>{
     try{
@@ -103,9 +103,14 @@ const updateBlog=async(req,res)=>{
 const searchBlogs=async(req,res)=>{
     try{
         const user_id=req.user.id;
-        const searchTerm=req.query.q;
-        const blogs=await searchBlogByUser(user_id,searchTerm);
-        res.render("myblogs",{blogs:blogs,user:req.user});
+        const searchTerm=req.query.q || "";
+        const page=req.query.page || 1;
+        const limit=5; //Number of records per page
+        const offset=(page-1)*limit; // Number of records to skip
+        const blogs=await searchBlogByUser(user_id,searchTerm,limit,offset);
+        const totalBlogs=await countSearchBlogs(user_id,searchTerm);
+        const totalPages=Math.max(Math.ceil(totalBlogs/limit),1);
+        res.render("myblogs",{blogs:blogs,user:req.user,currentPage:page,totalPages:totalPages,searchQuery:searchTerm});
     }catch(err){
         console.error("Server error",err);
         return res.status(500).json("Error while searching blog")
