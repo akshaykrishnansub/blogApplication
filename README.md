@@ -70,3 +70,16 @@ Dashboard: View your blogs, search blogs, and check statistics <br>
 Create Blog: Add a new blog with title, content, and tags <br>
 Edit / Delete: Manage your existing blogs <br>
 Search & Pagination: Easily find blogs and navigate through pages <br>
+
+## 📸 Screenshots
+<img width="1920" height="1080" alt="Screenshot (184)" src="https://github.com/user-attachments/assets/17279d60-133d-4bfd-994b-998d870d6d9d" /><br>
+<img width="1920" height="1080" alt="Screenshot (185)" src="https://github.com/user-attachments/assets/adc18f07-e20c-48c3-a499-e14688355446" /><br>
+
+
+
+
+
+
+
+
+
