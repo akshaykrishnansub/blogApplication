@@ -19,6 +19,7 @@
     <nav class="navbar navbar-dark navbar-expand-lg p-3 sticky-top" style="background-color: #2563EB;;">
         <div class="container-fluid">
             <a href="/" class="navbar-brand fw-bold">Blogifier</a>
+            <button class="btn text-white d-md-none me-2" onclick="toggleSidebar()">☰</button>
             <div class="d-flex align-items-center ms-auto gap-2">
                 <% const firstName=user.first_name;
                     const lastName=user.last_name;
@@ -33,17 +34,21 @@
             </div>
         </div>
     </nav>
-    <div class="container-fluid">
-        <div class="row">
-            <aside style="background-color: black; color: white; height: 100vh; width:220px;top:56px;">
-                <h5 class="p-3">Menu</h5>
-                <div class="mt-4"><a href="/blogs/compose" style="text-decoration: none;">Create a Blog</a></div>
-                <div class="mt-4"><a href="/blogs/myblogs" class="mt-4" style="text-decoration: none;">My Blogs</a></div>
+    <div class="container-fluid p-0">
+        <div class="d-flex">
+            <aside id="sidebar" class="sidebar" style="background-color: black; color: white; height: 100vh; width:220px;top:56px;">
+                <div class="d-flex justify-content-between align-items-center p-3">
+                    <h5 class="p-3">Menu</h5>
+                </div>
+                <div class="px-3">
+                    <div class="mt-4"><a href="/blogs/compose" style="text-decoration: none;">Create a Blog</a></div>
+                    <div class="mt-4"><a href="/blogs/myblogs" class="mt-4" style="text-decoration: none;">My Blogs</a></div>
+                </div>
             </aside>
-            <main class="col-md-10 mt-4">
+            <main class="main-content p-4">
                 <h2>Dashboard</h2>
                 <div class="row mt-4">
-                    <div class="col-md-3">
+                    <div class="col-md-3 gap-2">
                         <div class="card shadow">
                             <div class="card-body">
                                 <h5>Total Blogs Published:</h5>
@@ -71,6 +76,7 @@
             </main>
         </div>
     </div>
-        
+
+<script src="/js/main.js"></script>
 </body>
 </html>

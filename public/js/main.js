@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     let lastName=document.getElementById("last-name");
     let email=document.getElementById("email");
     let password=document.getElementById("password");
+    let sidebar=document.getElementById("sidebar");
 
     if(composeForm){
         function checkForm(){
@@ -167,4 +168,9 @@ function displayAlerts(message,type="success"){
     setTimeout(()=>{
         alert.remove();
     },4000);
+}
+
+//function to toggle sidebar
+function toggleSidebar(){
+    sidebar.classList.toggle('active')
 }

@@ -37,3 +37,40 @@
     text-transform: uppercase;
     border: 2px solid white;
 }
+
+.sidebar{
+    background-color: black;
+    color: white;
+    width: 220px;
+    height: calc(100vh - 56px);
+    position: fixed;
+    top: 56px;
+    left:0;
+    padding-top: 10px;
+}
+
+.main-content{
+    margin-left: 220px;
+    margin-top: 56px;
+    height: calc(100vh - 56px);
+    overflow-y: auto;
+    width: 100%;
+}
+
+/*MOBILE*/
+@media(max-width:768px){
+    .sidebar{
+        transform: translateX(-100%);
+        transition: 0.3s;
+        z-index: 1000;
+    }
+
+    .main-content{
+        margin-left: 0;
+        display: block;
+    }
+
+    .sidebar.active{
+        transform: translateX(0);
+    }
+}

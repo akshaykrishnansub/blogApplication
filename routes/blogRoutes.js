@@ -14,7 +14,7 @@ router.get("/compose",authenticateToken,(req,res)=>{
 router.get("/myblogs",authenticateToken,async(req,res)=>{
     try{
         const user_id=req.user.id;
-        const page=parseInt(req.query.page || 1);
+        const page=parseInt(req.query.page) || 1;
         const limit=5;
         const offset=(page-1)*limit;
         const blogs=await findBlogByUserId(user_id,limit,offset);
