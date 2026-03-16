@@ -53,7 +53,7 @@ const loginUser=async (req,res)=>{
             httpOnly:true,
             secure:true,
             sameSite:"none",
-            maxAge:1*24*60*60*1000
+            maxAge:1*24*60*60*1000,
         });
 
         return res.status(200).json({message:'Login Successful'});
