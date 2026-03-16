@@ -84,6 +84,17 @@ Search & Pagination: Easily find blogs and navigate through pages <br>
 ### Mobile View
 <img width="540" height="1080" alt="Screenshot (193)" src="https://github.com/user-attachments/assets/dbb30a4c-98f1-441e-9bd3-1062011abe34" />
 
+## Future Improvements
+Rich text editor & media uploads – allow images, videos, and formatting in blogs.
+
+Comments, likes, and bookmarks – enhance user interaction and engagement.
+
+Role-based access control – admin, author, and reader permissions.
+
+Advanced search & tags – filter blogs by category, tags, or popularity.
+
+Social login & notifications – login via Google/GitHub and get updates on new blogs.
+
 ### 👨‍💻 Author
 Akshay Krishnan Personal Project - 2026
 
