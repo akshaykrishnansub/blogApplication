@@ -49,3 +49,16 @@ To run this project locally:
 4. Start the server:
    npm run start
 5. Open http://localhost:3000 in your browser
+
+## Folder Structure
+
+blogifier/
+├── controllers/          # Request handlers
+├── models/               # Database models
+├── routes/               # Express routes
+├── views/                # EJS templates
+├── public/               # Static files (CSS, JS, images)
+├── middleware/           # Auth and other middleware
+├── config/               # Database configuration
+├── package.json
+└── app.js             # Entry point
