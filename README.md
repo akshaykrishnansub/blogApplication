@@ -11,3 +11,11 @@ Pagination for blog listings
 Responsive UI
 Secure password hashing
 Deployment with cloud database
+
+## Tech Stack
+### Frontend:
+HTML5
+CSS3
+JavaScript
+Bootstrap
+EJS
