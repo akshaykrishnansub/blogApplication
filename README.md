@@ -14,7 +14,7 @@ Deployment with cloud database
 
 ## Tech Stack
 ### Frontend:
-HTML5
+HTML5 <br>
 CSS3
 JavaScript
 Bootstrap
