@@ -39,9 +39,13 @@ Render
 
 To run this project locally:
 1. Clone the repository:
-   git clone https://github.com/yourusername/blogifier.git
-2. Install dependencies:
+   git clone https://github.com/akshaykrishnansub/blogApplication.git
+   cd blogApplication
+2. Setup PostgreSQL database
+  - Create a database in PostgreSQL, e.g., blogdb.
+  - Update database credentials in config/db.js (or wherever your DB config is).
+3. Install dependencies:
    npm install
-3. Start the server:
+4. Start the server:
    npm run start
-4. Open http://localhost:3000 in your browser
+5. Open http://localhost:3000 in your browser
