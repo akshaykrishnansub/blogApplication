@@ -35,3 +35,12 @@ PostgreSQL (Supabase)
 Render
 
 ## Installation
+
+To run this project locally:
+1. Clone the repository:
+   git clone https://github.com/yourusername/blogifier.git
+2. Install dependencies:
+   npm install
+3. Start the server:
+   npm start
+4. Open http://localhost:3000 in your browser
