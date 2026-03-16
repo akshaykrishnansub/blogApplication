@@ -35,7 +35,7 @@ PostgreSQL (Supabase)
 ### Deployment:
 Render
 
-##  Installation
+## 💻 Installation
 
 To run this project locally:
 1. Clone the repository:
@@ -63,7 +63,7 @@ blogifier/ <br>
 ├── package.json <br>
 └── app.js       <br>
 
-## Usage
+## 🎯 Usage
 
 Register / Login: Create an account or log in with existing credentials <br>
 Dashboard: View your blogs, search blogs, and check statistics <br>
