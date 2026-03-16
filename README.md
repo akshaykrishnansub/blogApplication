@@ -65,8 +65,8 @@ blogifier/ <br>
 
 ## Usage
 
-Register / Login: Create an account or log in with existing credentials
-Dashboard: View your blogs, search blogs, and check statistics
-Create Blog: Add a new blog with title, content, and tags
-Edit / Delete: Manage your existing blogs
-Search & Pagination: Easily find blogs and navigate through pages
+Register / Login: Create an account or log in with existing credentials <br>
+Dashboard: View your blogs, search blogs, and check statistics <br>
+Create Blog: Add a new blog with title, content, and tags <br>
+Edit / Delete: Manage your existing blogs <br>
+Search & Pagination: Easily find blogs and navigate through pages <br>
