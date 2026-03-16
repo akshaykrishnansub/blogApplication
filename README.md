@@ -8,7 +8,7 @@ Create, edit, and delete blogs <br>
 User dashboard with blog statistics(Total Blogs Published overall, My Blogs, No. of Users) <br>
 Search functionality <br>
 Pagination for blog listings <br>
-Responsive UI <br>
+Responsive UI (Mobile, Tablet and Desktop) <br>
 Secure password hashing <br>
 Deployment with cloud database
 
