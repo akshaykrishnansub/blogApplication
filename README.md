@@ -62,3 +62,11 @@ blogifier/ <br>
 ├── config/      <br>
 ├── package.json <br>
 └── app.js       <br>
+
+## Usage
+
+Register / Login: Create an account or log in with existing credentials
+Dashboard: View your blogs, search blogs, and check statistics
+Create Blog: Add a new blog with title, content, and tags
+Edit / Delete: Manage your existing blogs
+Search & Pagination: Easily find blogs and navigate through pages
